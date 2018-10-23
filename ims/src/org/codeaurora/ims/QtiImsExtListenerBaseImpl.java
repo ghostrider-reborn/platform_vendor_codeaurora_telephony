@@ -29,6 +29,8 @@
 package org.codeaurora.ims;
 
 import org.codeaurora.ims.internal.IQtiImsExtListener;
+import org.codeaurora.ims.QtiViceInfo;
+import android.telephony.Rlog;
 
 /**
  * This class contains default implementation for IQtiImsExtListener.
@@ -95,6 +97,14 @@ public class QtiImsExtListenerBaseImpl extends IQtiImsExtListener.Stub {
 
     @Override
     public void onGetHandoverConfig(int phoneId, int result, int hoConfig) {
+    }
+
+    @Override
+    public void notifyRefreshViceInfo(QtiViceInfo viceInfo) {
+    }
+
+    @Override
+    public void receiveCallTransferResponse(int result) {
     }
 }
 

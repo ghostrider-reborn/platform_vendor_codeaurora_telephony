@@ -114,6 +114,15 @@ interface IQtiImsExt {
             IQtiImsExtListener listener);
 
    /**
+     * Register for VICE dialog
+     *
+     * @param listener, provided if caller needs to be notified for get result.
+     * @return void
+     *
+     */
+    void registerForViceRefreshInfo(IQtiImsExtListener listener);
+
+   /**
      * sendCallTransferRequest
      * Transfer an established call to given number or call id
      *
