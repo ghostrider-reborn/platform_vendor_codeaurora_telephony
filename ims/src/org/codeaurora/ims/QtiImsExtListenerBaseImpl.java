@@ -57,6 +57,10 @@ public class QtiImsExtListenerBaseImpl extends IQtiImsExtListener.Stub {
     }
 
     @Override
+    public void receiveCallDeflectResponse(int phoneId, int result) {
+    }
+
+    @Override
     public void receiveCallTransferResponse(int phoneId, int result) {
     }
 

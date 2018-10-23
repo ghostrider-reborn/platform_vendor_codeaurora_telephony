@@ -47,7 +47,7 @@ import org.codeaurora.ims.QtiCallConstants;
 import org.codeaurora.ims.utils.QtiImsExtUtils;
 
 /**
- * Provides API's for IQtiImsExt Binder such as sending call transfer etc
+ * Provides API's for IQtiImsExt Binder such as sending call deflect, call transfer etc
  * This class is starting point for all the QtiImsExt actions.
  * You can acquire an instance of it by calling {@link getInstance getInstance()}
  *
@@ -65,7 +65,7 @@ public class QtiImsExtManager {
 
     /**
      * All the QtiImsExt actions are performed using this interface,
-     * this interface/binder provides API's such as sending
+     * this interface/binder provides API's such as sending call deflect,
      * call transfer etc
      */
     private IQtiImsExt mQtiImsExt;
@@ -121,6 +121,18 @@ public class QtiImsExtManager {
             mQtiImsExt.getPacketErrorCount(phoneId, listener);
         } catch(RemoteException e) {
             throw new QtiImsException("Remote ImsService getPacketErrorCount : " + e);
+        }
+    }
+
+    public void sendCallDeflectRequest(int phoneId, String deflectNumber,
+            IQtiImsExtListener listener) throws QtiImsException {
+        obtainBinder();
+        checkPhoneId(phoneId);
+        checkFeatureStatus(phoneId);
+        try {
+            mQtiImsExt.sendCallDeflectRequest(phoneId, deflectNumber, listener);
+        } catch(RemoteException e) {
+            throw new QtiImsException("Remote ImsService sendCallDeflectRequestCount : " + e);
         }
     }
 
